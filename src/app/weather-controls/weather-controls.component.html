@@ -1,3 +1,30 @@
-<span style="color: green;">
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New tracking</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="cityName">Please enter city name:</label>
+          <div class="input-group">
+            <input
+            name="cityName"
+            id="dateOfBirth" 
+            class="form-control" 
+            type="text"
+            placeholder="Add city name..."
+            [(ngModel)]="city_input">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="addCityFromInput()">Save</button>
+    </div>
+  </ng-template>
+  <span style="color: green;" (click)="open(content)">
     <i class="fas fa-2x fa-plus-circle"></i>
 </span>

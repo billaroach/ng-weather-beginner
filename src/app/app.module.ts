@@ -7,22 +7,27 @@ import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherItemComponent } from './weather-item/weather-item.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { FormsModule } from '@angular/forms';
 import { WeatherControlsComponent } from './weather-controls/weather-controls.component';
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherListComponent,
     WeatherItemComponent,
-    WeatherControlsComponent
+    WeatherControlsComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

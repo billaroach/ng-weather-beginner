@@ -1,0 +1,10 @@
+.app-header {
+    display: inline-block;
+    padding: 1.5rem;
+    margin-right: auto;
+
+    .header-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+}

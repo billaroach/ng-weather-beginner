@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs/operators';
+import { WeatherService } from '../shared/weather.service';
 
 @Component({
   selector: 'app-weather-list',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather-list.component.scss']
 })
 export class WeatherListComponent implements OnInit {
+  public loading:boolean = true;
 
-  constructor() { }
+  constructor(public weatherService: WeatherService) { }
 
   ngOnInit(): void {
+    this.weatherService.addCity('Perm')
+    .pipe(delay(2000))
+    .subscribe(() => {
+      this.loading = false;
+    })
   }
 
 }

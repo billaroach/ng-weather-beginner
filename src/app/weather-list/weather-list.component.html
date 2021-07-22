@@ -1,1 +1,7 @@
-<p>weather-list works!</p>
+<div class="weather-list-wrapper" *ngIf="!loading">
+    <div class="weather-container">
+        <div class="weather-container__item" *ngFor="let city of weatherService.weatherList; let i = index" >
+            <app-weather-item [city]="city" [index]="i"></app-weather-item>
+        </div>
+    </div>
+</div>

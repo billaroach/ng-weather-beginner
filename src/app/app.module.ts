@@ -9,16 +9,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { WeatherControlsComponent } from './weather-controls/weather-controls.component';
-
-
-
-
+import { CityPageComponent } from './city-page/city-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
     WeatherListComponent,
     WeatherItemComponent,
     WeatherControlsComponent,
+    CityPageComponent,
+    PageNotFoundComponent,
 
   ],
   imports: [

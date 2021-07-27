@@ -1,7 +1,12 @@
-<div class="weather-list-wrapper" *ngIf="!loading">
-    <div class="weather-container">
-        <div class="weather-container__item" *ngFor="let city of weatherService.weatherList; let i = index" >
-            <app-weather-item [city]="city" [index]="i"></app-weather-item>
+<div class="weather-list-wrapper" *ngIf="loading">
+    <div class="container">
+        <app-weather-controls></app-weather-controls>
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let city of weatherService.weatherList; let i = index" >
+                <app-weather-item [city]="city" [index]="i"></app-weather-item>
+            </div>
         </div>
     </div>
 </div>
+
+

@@ -1,6 +1,4 @@
-<div class="weather-item-wrapper">
-    <div class="container">
-        <div class="col-sm-3">
+        <div class="weather-item-wrapper">
             <div class="weather-item-info">
                 <div class="section">
                     <span class="weather-item__header">{{this.city.name}}</span>
@@ -12,7 +10,39 @@
                 <div class="section">
                 </div>
                 <span class="weather-item__info">{{this.tempToCels(this.city.main.temp)}}℃</span>
+                <div class="control-block">
+                    <button type="button" class="btn btn-light" (click)="open(content)">More (popup)</button>
+                    <button type="button" class="btn btn-light" routerLink="/city" routerLinkActive="active">More (new page)</button>
+                    <span style="color: tomato;" (click)="removeCity(city.id)">
+                        <i class="fas fa-times-circle fa-2x remove-btn"></i>
+                    </span>  
+                </div> 
             </div>
         </div>
-    </div>
-</div>
+        <ng-template #content let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">{{this.city.name}}</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="weather-hours-block">
+                <div class="weather-hours-item" *ngFor="let hour of city_hourly.hourly.slice(0,4);index as i">
+                  <div class="section">
+                    <img src='https://openweathermap.org/img/wn/{{hour.weather[0].icon}}@2x.png'/>
+                  </div>
+                  <div class="section">
+                    {{hour.weather[0].description}}
+                  </div>
+                  <div class="section">
+                    {{this.currentHours(i)}}:{{this.currentDate.getMinutes()}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss('Button click')">OK</button>
+            </div>
+          </ng-template>
+          
